@@ -7,6 +7,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans, DBSCAN, AgglomerativeClustering
 from sklearn.decomposition import PCA
 import zipfile
+import os
 
 # -----------------------------
 # Load Dataset
