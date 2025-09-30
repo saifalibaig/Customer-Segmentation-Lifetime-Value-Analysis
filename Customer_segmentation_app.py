@@ -6,13 +6,23 @@ import plotly.express as px
 from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans, DBSCAN, AgglomerativeClustering
 from sklearn.decomposition import PCA
+import zipfile
 
 # -----------------------------
 # Load Dataset
 # -----------------------------
 @st.cache_data
 def load_data():
-    df = pd.read_csv('./data/online_retail_II.csv')
+
+    zip_path = "online_retail_II.zip"  # ZIP file in repo root
+    csv_filename = "online_retail_II.csv"
+
+    # Unzip if not already unzipped
+    if not os.path.exists(csv_filename):
+        with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+            zip_ref.extractall(".")  # extract to repo root
+
+    df = pd.read_csv(csv_filename)
     df = df.dropna(subset=["Customer ID", "Description"])
     df = df[df.Quantity > 0]
     df["InvoiceDate"] = pd.to_datetime(df["InvoiceDate"], errors='coerce')
