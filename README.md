@@ -102,12 +102,3 @@ streamlit run customer_segmentation_app.py
 
 ---
 
-## 📜 License
-This project is licensed under the **MIT License**.
-
----
-
-## 🙋 Contact
-Built by [Your Name].  
-For questions or collaboration: `youremail@example.com` or visit my GitHub profile: `https://github.com/yourusername`
-
